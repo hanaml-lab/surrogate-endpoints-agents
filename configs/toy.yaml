@@ -1,0 +1,20 @@
+# CPU toy setting for python -m tenor.demo: a pull-request-like environment with thirty past changes and seven
+# releases; runs in seconds.
+environment:
+  name: pull requests (toy)
+  base: 0.54          # outcome rate of the first version
+  rate: 1500.0        # runs per day per version
+  landmark: 14.0      # days: the outcome (merged and not reverted within 14 days) is known at this age
+  horizon: 28.0       # days a release is monitored before it is escalated
+  delay:
+    kind: fixed
+    days: 14.0
+history:
+  types: HHXHHHHHPHHHHHHHHXHHHHHHHHHHHH   # H honest, P flatters the judge, X reward-hacked
+  runs_per_version: 6000
+  seed: 7
+releases:
+  types: HHHXHHL      # L acts on the outcome through a path no signal measures
+  seed: 11
+gate:
+  delta: 0.02         # ship once a change is shown to cost less than 2 points; block once it costs anything
