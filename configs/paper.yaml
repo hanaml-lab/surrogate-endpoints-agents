@@ -1,0 +1,35 @@
+# The four environments of the report (its Table 1). The report's numbers come from paper/make_data.py, which
+# uses these values; this file documents them in one place.
+pull_requests:
+  outcome: merged and not reverted within 14 days of opening
+  base: 0.54
+  rate: 5000
+  landmark: 14.0
+  horizon: 42.0
+  delay: {kind: fixed, days: 14.0}
+reconciliation:
+  outcome: passes the month-end audit
+  base: 0.70
+  rate: 4500
+  landmark: 9.0
+  horizon: 42.0
+  delay: {kind: calendar, lo: 2.0, hi: 32.0}
+replication:
+  outcome: rubric grade of 60% or more
+  base: 0.36
+  rate: 1500
+  landmark: 11.0
+  horizon: 42.0
+  delay: {kind: grading, med: 11.0, sd: 0.28, per_rerun: 0.22, per_comment: 0.05}
+business_simulation:
+  outcome: day-30 net worth 20% above start
+  base: 0.44
+  rate: 2400
+  landmark: 30.0
+  horizon: 48.0
+  delay: {kind: fixed, days: 30.0}
+gate:
+  delta: 0.02
+  total_alpha: 0.05
+  seeds: [0, 1, 2, 3, 4]
+  check_every_hours: 1
